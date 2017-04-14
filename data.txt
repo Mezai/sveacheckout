@@ -1,0 +1,2091 @@
+143339Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143340',
+                AUTHTOKEN: 'SveaCheckout UGUY9TFpxvi0RC7CxPigcRjzhGE=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 906927
+    [OrderId] => 143340
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => 
+    [Status] => PaymentGuaranteed
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143339',
+                AUTHTOKEN: 'SveaCheckout 7YSgLNCTC/4yfWeU/nput66YJiI=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 946657
+    [OrderId] => 143339
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => 
+    [Status] => PaymentGuaranteed
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143340',
+                AUTHTOKEN: 'SveaCheckout UGUY9TFpxvi0RC7CxPigcRjzhGE=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 906927
+    [OrderId] => 143340
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => 
+    [Status] => PaymentGuaranteed
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143339',
+                AUTHTOKEN: 'SveaCheckout 7YSgLNCTC/4yfWeU/nput66YJiI=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 946657
+    [OrderId] => 143339
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143340',
+                AUTHTOKEN: 'SveaCheckout UGUY9TFpxvi0RC7CxPigcRjzhGE=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 906927
+    [OrderId] => 143340
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143339',
+                AUTHTOKEN: 'SveaCheckout 7YSgLNCTC/4yfWeU/nput66YJiI=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 946657
+    [OrderId] => 143339
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143340',
+                AUTHTOKEN: 'SveaCheckout UGUY9TFpxvi0RC7CxPigcRjzhGE=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 906927
+    [OrderId] => 143340
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143339',
+                AUTHTOKEN: 'SveaCheckout 7YSgLNCTC/4yfWeU/nput66YJiI=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 946657
+    [OrderId] => 143339
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143340',
+                AUTHTOKEN: 'SveaCheckout UGUY9TFpxvi0RC7CxPigcRjzhGE=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 906927
+    [OrderId] => 143340
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143339',
+                AUTHTOKEN: 'SveaCheckout 7YSgLNCTC/4yfWeU/nput66YJiI=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 946657
+    [OrderId] => 143339
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143340',
+                AUTHTOKEN: 'SveaCheckout UGUY9TFpxvi0RC7CxPigcRjzhGE=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 906927
+    [OrderId] => 143340
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143339',
+                AUTHTOKEN: 'SveaCheckout 7YSgLNCTC/4yfWeU/nput66YJiI=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 946657
+    [OrderId] => 143339
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143340',
+                AUTHTOKEN: 'SveaCheckout UGUY9TFpxvi0RC7CxPigcRjzhGE=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 906927
+    [OrderId] => 143340
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143339',
+                AUTHTOKEN: 'SveaCheckout 7YSgLNCTC/4yfWeU/nput66YJiI=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 946657
+    [OrderId] => 143339
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143340',
+                AUTHTOKEN: 'SveaCheckout UGUY9TFpxvi0RC7CxPigcRjzhGE=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 906927
+    [OrderId] => 143340
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143339',
+                AUTHTOKEN: 'SveaCheckout 7YSgLNCTC/4yfWeU/nput66YJiI=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 946657
+    [OrderId] => 143339
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
+Array
+(
+    [MerchantSettings] => Array
+        (
+            [TermsUri] => https://psdevs.com/sv/content/1-delivery
+            [CheckoutUri] => https://psdevs.com/sv/cart?action=show
+            [ConfirmationUri] => https://psdevs.com/sv/module/sveacheckout/confirmation
+            [PushUri] => https://psdevs.com/sv/module/sveacheckout/push?svea_order={checkout.order.uri}
+        )
+
+    [Cart] => Array
+        (
+            [Items] => Array
+                (
+                    [0] => Array
+                        (
+                            [ArticleNumber] => demo_2
+                            [Name] => Blouse
+                            [Quantity] => 2
+                            [UnitPrice] => 33.74
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [ArticleNumber] => demo_3
+                            [Name] => Printed Dress
+                            [Quantity] => 1
+                            [UnitPrice] => 32.49
+                            [VatPercent] => 25
+                            [DiscountPercent] => 0
+                            [Unit] => 
+                            [TemporaryReference] => 
+                            [RowId] => 2
+                        )
+
+                )
+
+        )
+
+    [Customer] => Array
+        (
+            [NationalId] => 194605092222
+            [CountryCode] => SE
+            [IsCompany] => 
+            [IsMale] => 
+            [DateOfBirth] => 
+        )
+
+    [ShippingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [BillingAddress] => Array
+        (
+            [FullName] => Persson, Tess T
+            [FirstName] => Tess T
+            [LastName] => Persson
+            [StreetAddress] => Testgatan 1
+            [CoAddress] => c/o Eriksson, Erik
+            [PostalCode] => 99999
+            [City] => Stan
+            [CountryCode] => SE
+        )
+
+    [Gui] => Array
+        (
+            [Layout] => desktop
+            [Snippet] => 
+
+<div id="svea-confirm-container" style="overflow-x: hidden;">
+    <script type="text/javascript">
+
+        (function(window, key ,containerId, document){
+            window[key] = window[key] || function () { (window[key].q = window[key].q || []).push(arguments); };
+            window[key].config = {
+                container: window.document.getElementById(containerId),
+                ORDERID: '143340',
+                AUTHTOKEN: 'SveaCheckout UGUY9TFpxvi0RC7CxPigcRjzhGE=',
+                MERCHANTTERMSURI: '',
+                MERCHANTTERMSTITLE: '',
+                MERCHANTNAME: '',
+                BOOTSTRAP_SRC: 'https://checkoutpagestage.svea.com/scripts/checkout/confirm-loader.js',
+                version: '636274924679409821'
+            };
+            var scriptTag = document.createElement('script');
+            var container = document.getElementById(containerId);
+            scriptTag.async = true;
+            scriptTag.src = window[key].config.BOOTSTRAP_SRC;
+            container.insertBefore(scriptTag, container.firstChild);
+        })(this,'_sveaConfirm','svea-confirm-container',document);
+</script>
+<noscript>
+    Please <a href="http://enable-javascript.com">enable JavaScript</a>.
+</noscript>
+</div>
+
+
+        )
+
+    [Locale] => sv
+    [Currency] => SEK
+    [CountryCode] => SE
+    [PresetValues] => 
+    [ClientOrderNumber] => 906927
+    [OrderId] => 143340
+    [EmailAddress] => test123@test.com
+    [PhoneNumber] => 070123456
+    [PaymentType] => INVOICE
+    [Status] => Final
+)
