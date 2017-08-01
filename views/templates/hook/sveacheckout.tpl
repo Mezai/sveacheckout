@@ -23,8 +23,6 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
-{include file="./carriers.tpl"}
-
 <div class="card svea-container">
 	<div class="card-block">
 		<div class="col-md-12">

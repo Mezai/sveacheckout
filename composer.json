@@ -3,6 +3,6 @@
 		"psr-4": {"SveaCheckout\\": "classes/"}
 	},
     "require": {
-        "sveaekonomi/webpay": "^3.2"
+        "sveaekonomi/checkout": "dev-master"
     }
 }

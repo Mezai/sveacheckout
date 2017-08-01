@@ -3,7 +3,12 @@
             <div class="col-md-12"> 
                 <div class="delivery-options-list">
     {if $delivery_options|count}
-       <form action="{$link->getModuleLink('sveacheckout', 'carrier')}" method="POST">
+       <form
+        class="clearfix"
+        id="js-delivery"
+        data-url-update="{url entity='order' params=['ajax' => 1, 'action' => 'selectDeliveryOption']}"
+        method="post"
+      >
         <div class="form-fields">
           {block name='delivery_options'}
             <div class="delivery-options">
@@ -11,9 +16,7 @@
                   <div class="delivery-option">
                     <div class="col-sm-1">
                       <span class="custom-radio pull-xs-left">
-                        <button type="submit" class="btn btn-primary btn-md" name="delivery_option[{$id_address}]" id="delivery_option_{$carrier.id_carrier}" value="{$carrier_id}"{if $delivery_option == $carrier_id} checked{/if}>
-                          {l s='Select' d='Shop.Theme.Checkout'}
-                        </button>
+                        <input type="radio" name="delivery_option[{$id_address}]" id="delivery_option_{$carrier.id_carrier}" value="{$carrier_id}"{if $delivery_option == $carrier_id} checked{/if}>
                         <span></span>
                       </span>
                     </div>

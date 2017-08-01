@@ -32,24 +32,17 @@ class SveaCheckoutCarrierModuleFrontController extends ModuleFrontController {
 
 	public function postProcess()
 	{
-		if (Tools::getIsset('delivery_option')) {
-            if ($this->validateDeliveryOption(Tools::getValue('delivery_option'))) {
-                $this->context->cart->setDeliveryOption(Tools::getValue('delivery_option'));
-            }
-            if (!$this->context->cart->update()) {
-               	$this->warning = array(
-               		'error' => $this->l('Could not update carrier')
-               	);
-            }
-            
-            CartRule::autoRemoveFromCart($this->context);
-			CartRule::autoAddToCart($this->context);
+		parent::postProcess();	
 
-			$this->info = array(
-            	'info' => $this->l('Updated carrier')
-            );
-
-        }
+        if (Tools::getIsset('delivery_option'))
+		{
+			if ($this->validateDeliveryOption(Tools::getValue('delivery_option')))
+				$this->context->cart->setDeliveryOption(Tools::getValue('delivery_option'));
+			if (!$this->context->cart->update())
+				$this->context->smarty->assign('klarna_carrier_error', Tools::displayError('Could not save carrier selection'));
+		}
+		CartRule::autoRemoveFromCart($this->context);
+		CartRule::autoAddToCart($this->context);
 
 		$this->redirectWithNotifications($this->getCartSummaryURL());
 	}

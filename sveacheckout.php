@@ -27,13 +27,11 @@
 require dirname(__FILE__) . '/vendor/autoload.php';
 
 
-use Svea\WebPay\WebPay;
-use Svea\WebPay\WebPayItem;
-use Svea\WebPay\Config\ConfigurationService;
-use Svea\WebPay\Checkout\Model\PresetValue;
 use SveaCheckout\CreateOrderStatus;
 use SveaCheckout\CreateOrderTabs;
 use PrestaShop\PrestaShop\Adapter\Carrier\CarrierDataProvider;
+use Svea\Checkout\CheckoutClient;
+use Svea\Checkout\Transport\Connector;
 
 class sveacheckout extends PaymentModule
 {
@@ -61,15 +59,6 @@ class sveacheckout extends PaymentModule
 
     public function install()
     {
-
-        $steps = array(
-            new CreateOrderStatus,
-            new CreateOrderTabs
-        );
-
-        foreach ($steps as $step) {
-           $step->create();
-        }
         return parent::install()
             && $this->registerHook('header')
             && $this->registerHook('displayShoppingCart')
@@ -126,22 +115,68 @@ class sveacheckout extends PaymentModule
     {
         $order = null;
         $locale = 'sv-Se';
-        $config = ConfigurationService::getTestConfig();
-        $orderBuilder = WebPay::checkout($config);
+        $checkoutMerchantId = Configuration::get('SVEACHECKOUT_MERCHANT');
+        $checkoutSecret = Configuration::get('SVEACHECKOUT_SECRET');
+
+        $baseUrl = (int)Configuration::get('SVEACHECKOUT_MODE') === 1 ? \Svea\Checkout\Transport\Connector::PROD_BASE_URL : \Svea\Checkout\Transport\Connector::TEST_BASE_URL;
+
+        $conn = Connector::init($checkoutMerchantId, $checkoutSecret, $baseUrl);
+        $checkoutClient = new CheckoutClient($conn);
+
 
         $cart = $this->context->cart;
-        $products = $cart->getProducts();
 
-        foreach ($products as $product) {
-            $item = WebPayItem::orderRow()
-            ->setAmountIncVat($product['price_wt'])
-            ->setVatPercent((int)$product['rate'])
-            ->setQuantity((int)$product['quantity'])
-            ->setArticleNumber($product['reference'])
-            ->setTemporaryReference($product['reference'])
-            ->setName($product['name']);
+        $cms = new CMS(
+            (int)Configuration::get('SVEACHECKOUT_TERMS'),
+            (int)$this->context->cookie->id_lang
+        );
 
-            $orderBuilder->addOrderRow($item);
+        $linkConditions = $this->context->link->getCMSLink($cms, $cms->link_rewrite, Tools::usingSecureMode());
+        $pushPage = $this->context->link->getModuleLink('sveacheckout', 'push', array(), Tools::usingSecureMode());
+        $pushPage .= '?svea_order={checkout.order.uri}';
+
+        $confirmationUri = $this->context->link->getModuleLink('sveacheckout', 'confirmation', array(),
+            Tools::usingSecureMode()
+        );
+
+        $checkoutUri = $this->context->link->getPageLink(
+            'cart',
+            null,
+            $this->context->language->id,
+            array(
+                'action' => 'show'
+            )
+        );
+
+        $data = array(
+            "countryCode" => $this->context->country->iso_code,
+            "currency" => $this->context->currency->iso_code,
+            "locale" => $locale,
+            "clientOrderNumber" => (int)$this->context->cart->id,
+            'cart' => array(
+                'items' => array(
+                )
+            ),
+            'merchantSettings' => array(
+                "termsUri" => $linkConditions,
+                "checkoutUri" => $checkoutUri,
+                "confirmationUri" => $confirmationUri,
+                "pushUri" => $pushPage
+            ),
+
+        );
+
+        foreach ($cart->getProducts() as $product) {
+            $data['cart']['items'][] = array(
+                'articleNumber' => $product['reference'],
+                'name' => $product['name'],
+                'quantity' => (int)$product['quantity'] * 100,
+                'unitPrice' => (int)$product['price_wt'] * 100,
+                "discountPercent" => 0,
+                "vatPercent" => (int)$product['rate'] * 100,
+                'temporaryReference' => $product['reference']
+
+            );
         }
 
         $shipping_price_wt = $this->context->cart->getOrderTotal(true, Cart::ONLY_SHIPPING);
@@ -152,23 +187,22 @@ class sveacheckout extends PaymentModule
         $carriertaxrate = $carrier->getTaxesRate($carrieraddress);
 
         if ($shipping_price > 0) {
-            $shippingItem = WebPayItem::shippingFee()
-            ->setAmountIncVat($shipping_price_wt)
-            ->setVatPercent((int)$carriertaxrate)
-            ->setName(strip_tags($carrier->name));
-
-            $orderBuilder->addFee($shippingItem);
+            $data['cart']['items'][] = array(
+                "type" => "shipping_fee",
+                "articleNumber" => "",
+                "name" => strip_tags($carrier->name),
+                "quantity" => 100,
+                "unitPrice" => (int)$shipping_price_wt * 100,
+                "vatPercent" => (int)$carriertaxrate * 100
+            );
         }
 
-        if ($this->context->cookie->__isset('svea_order_id')) {
-            // resume the session
-            $orderBuilder->setCheckoutOrderId((int)$this->context->cookie->__get('svea_order_id'))
-                ->setCountryCode('SE'); // optional line of code
+        $this->prepareCarriers();
 
-               $this->prepareCarriers(); 
+        if ($this->context->cookie->__isset('svea_order_id')) {
+            // resume session
             try {
-                $orderBuilder->getOrder();
-                $order = $orderBuilder->updateOrder();
+                $order = $checkoutClient->update($data);
             } catch (\Exception $e) {
                 $order = null;
                 $this->context->cookie->__unset('svea_order_id');
@@ -176,50 +210,28 @@ class sveacheckout extends PaymentModule
         }
 
         if ($order == null) {
-            $this->prepareCarriers();
 
-            $cms = new CMS(
-                (int)Configuration::get('SVEACHECKOUT_TERMS'),
-                (int)$this->context->cookie->id_lang
-            );
-
-            $link_conditions = $this->context->link->getCMSLink($cms, $cms->link_rewrite, Tools::usingSecureMode());
-            $pushPage = $this->context->link->getModuleLink('sveacheckout', 'push', array(), Tools::usingSecureMode());
-            $pushPage .= '?svea_order={checkout.order.uri}';
-            $orderBuilder->setCountryCode(Tools::strtoupper($this->context->country->iso_code))
-            ->setCurrency($this->context->currency->iso_code)
-            ->setClientOrderNumber(rand(1000010, 900000))
-            ->setCheckoutUri(
-                $this->context->link->getPageLink(
-                'cart',
-                null,
-                $this->context->language->id,
-                array(
-                    'action' => 'show'
-                )
-            ))
-            ->setConfirmationUri(
-                $this->context->link->getModuleLink('sveacheckout', 'confirmation',
-                    array(),
-                    Tools::usingSecureMode()
-            ))
-            ->setPushUri(
-                    $pushPage
-                )
-            ->setTermsUri($link_conditions)
-            ->setLocale($locale);
-    
             try {
-                $order = $orderBuilder->createOrder();
-            } catch (\Exception $e) {
+                $order = $checkoutClient->create($data);
+            } catch(\Exception $e) {
                 Logger::addLog('Svea order failed with message ' . $e->getMessage() . 'and error code ' . $e->getCode());
             }
         }
-        $this->context->cookie->__set('svea_order_id', $order['OrderId']);
 
-        if (isset($order['Gui']['Snippet'])) {
+        
+        
+        
+        $orderId = $order['OrderId'];
+        $guiSnippet = $order['Gui']['Snippet'];
+        var_dump($orderId);
+
+        $this->context->cookie->__set('svea_order_id', $orderId);
+
+
+        if (isset($guiSnippet)) {
             $this->context->smarty->assign(array(
-                'snippet' => $order['Gui']['Snippet']
+                'snippet' => $guiSnippet,
+                'id_address' => $this->context->cart->id_address_invoice
             ));
             return $this->display(__FILE__, 'sveacheckout.tpl');
         }
