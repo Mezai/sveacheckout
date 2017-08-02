@@ -13,7 +13,7 @@
           {block name='delivery_options'}
             <div class="delivery-options">
               {foreach from=$delivery_options item=carrier key=carrier_id}
-                  <div class="delivery-option">
+                  <div class="row delivery-option">
                     <div class="col-sm-1">
                       <span class="custom-radio pull-xs-left">
                         <input type="radio" name="delivery_option[{$id_address}]" id="delivery_option_{$carrier.id_carrier}" value="{$carrier_id}"{if $delivery_option == $carrier_id} checked{/if}>

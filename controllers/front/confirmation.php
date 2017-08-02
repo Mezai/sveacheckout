@@ -24,8 +24,8 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 
-use Svea\WebPay\WebPay;
-use Svea\WebPay\Config\ConfigurationService;
+use \Svea\Checkout\CheckoutClient;
+use \Svea\Checkout\Transport\Connector;
 
 class SveaCheckoutConfirmationModuleFrontController extends ModuleFrontController {
 	
@@ -49,13 +49,15 @@ class SveaCheckoutConfirmationModuleFrontController extends ModuleFrontControlle
             )
         ));
 
-		$config = ConfigurationService::getTestConfig();
-		$orderBuilder = WebPay::checkout($config);
+		$checkoutMerchantId = Configuration::get('SVEACHECKOUT_MERCHANT');
+        $checkoutSecret = Configuration::get('SVEACHECKOUT_SECRET');
 
-		$orderBuilder->setCheckoutOrderId((int)$this->context->cookie->__get('svea_order_id'))
-			 ->setCountryCode('SE'); // optional line of code
+        $baseUrl = (int)Configuration::get('SVEACHECKOUT_MODE') === 1 ? \Svea\Checkout\Transport\Connector::PROD_BASE_URL : \Svea\Checkout\Transport\Connector::TEST_BASE_URL;
 
-		$order = $orderBuilder->getOrder();
+		$conn = Connector::init($checkoutMerchantId, $checkoutSecret, $baseUrl);
+        $checkoutClient = new CheckoutClient($conn);
+
+		$order = $checkoutClient->get(array('orderId' => (int)$this->context->cookie->__get('svea_order_id')));
 
 		$this->context->smarty->assign(array(
 			'snippet' => $order['Gui']['Snippet']

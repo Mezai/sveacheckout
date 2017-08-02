@@ -171,7 +171,7 @@ class sveacheckout extends PaymentModule
                 'articleNumber' => $product['reference'],
                 'name' => $product['name'],
                 'quantity' => (int)$product['quantity'] * 100,
-                'unitPrice' => (int)$product['price_wt'] * 100,
+                'unitPrice' => $product['price_wt'] * 100,
                 "discountPercent" => 0,
                 "vatPercent" => (int)$product['rate'] * 100,
                 'temporaryReference' => $product['reference']
@@ -192,7 +192,7 @@ class sveacheckout extends PaymentModule
                 "articleNumber" => "",
                 "name" => strip_tags($carrier->name),
                 "quantity" => 100,
-                "unitPrice" => (int)$shipping_price_wt * 100,
+                "unitPrice" => $shipping_price_wt * 100,
                 "vatPercent" => (int)$carriertaxrate * 100
             );
         }

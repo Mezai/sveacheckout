@@ -1,5 +1,5 @@
-
+{extends file='page.tpl'}
 
 {block name="page_content"}
-	{$snippet}
+	{$snippet nofilter}
 {/block}
