@@ -157,6 +157,8 @@ class sveacheckout extends PaymentModule
                 'items' => array(
                 )
             ),
+            'presetValues' => array(
+            ),
             'merchantSettings' => array(
                 "termsUri" => $linkConditions,
                 "checkoutUri" => $checkoutUri,
@@ -165,6 +167,15 @@ class sveacheckout extends PaymentModule
             ),
 
         );
+
+        if ((int)Configuration::get('SVEACHECKOUT_ISCOMPANY') === 1 || (int)Configuration::get('SVEACHECKOUT_ISCOMPANY') === 2) {
+            $data['presetValues'][] = array(
+                'typeName' => 'isCompany',
+                'value' => (int)Configuration::get('SVEACHECKOUT_ISCOMPANY') === 1 ? true : false,
+                'isReadonly' => true
+            );
+
+        }
 
         foreach ($cart->getProducts() as $product) {
             $data['cart']['items'][] = array(
@@ -266,6 +277,21 @@ class sveacheckout extends PaymentModule
 
     public function renderForm()
     {
+        $isCompany = array(
+            array(
+                'id_option' => 0,
+                'name' => 'None'
+            ),
+            array(
+                'id_option' => 1,
+                'name' => 'Company'
+            ),
+            array(
+                'id_option' => 2,
+                'name' => 'Private person'
+            ),
+        );
+
         $fields_form = array(
         'form' => array(
           'legend' => array(
@@ -318,6 +344,18 @@ class sveacheckout extends PaymentModule
                     ),
                 ),
             ),
+            array(
+                'type' => 'select',
+                'label' => $this->l('Preset customer type'),
+                'desc' => $this->l('Select to preset the customer type in checkout'),
+                'name' => 'SVEACHECKOUT_ISCOMPANY',
+                'options' => array(
+                    'query' => $isCompany,
+                    'id' => 'id_option',
+                    'name' => 'name'
+                ),
+
+            ),
           ),
           'submit' => array(
                     'title' => $this->l('Save'),
@@ -356,6 +394,7 @@ class sveacheckout extends PaymentModule
             'SVEACHECKOUT_MERCHANT' => Tools::getValue('SVEACHECKOUT_MERCHANT', Configuration::get('SVEACHECKOUT_MERCHANT')),
             'SVEACHECKOUT_SECRET' => Tools::getValue('SVEACHECKOUT_SECRET', Configuration::get('SVEACHECKOUT_SECRET')),
             'SVEACHECKOUT_TERMS' => Tools::getValue('SVEACHECKOUT_TERMS', Configuration::get('SVEACHECKOUT_TERMS')),
+            'SVEACHECKOUT_ISCOMPANY' => Tools::getValue('SVEACHECKOUT_ISCOMPANY', Configuration::get('SVEACHECKOUT_ISCOMPANY')),
          );
     }
     protected function _postProcess()
@@ -365,6 +404,8 @@ class sveacheckout extends PaymentModule
             Configuration::updateValue('SVEACHECKOUT_SECRET', Tools::getValue('SVEACHECKOUT_SECRET'));
             Configuration::updateValue('SVEACHECKOUT_MODE', Tools::getValue('SVEACHECKOUT_MODE'));
             Configuration::updateValue('SVEACHECKOUT_TERMS', Tools::getValue('SVEACHECKOUT_TERMS'));
+            Configuration::updateValue('SVEACHECKOUT_ISCOMPANY', Tools::getValue('SVEACHECKOUT_ISCOMPANY'));
+
         }
 
         $this->_html .= $this->displayConfirmation($this->trans('Settings updated', array(), 'Admin.Global'));
