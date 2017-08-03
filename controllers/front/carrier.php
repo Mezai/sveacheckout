@@ -38,12 +38,13 @@ class SveaCheckoutCarrierModuleFrontController extends ModuleFrontController {
 		{
 			if ($this->validateDeliveryOption(Tools::getValue('delivery_option')))
 				$this->context->cart->setDeliveryOption(Tools::getValue('delivery_option'));
-			if (!$this->context->cart->update())
+			if (!$this->context->cart->update()) {
 				$this->context->smarty->assign('klarna_carrier_error', Tools::displayError('Could not save carrier selection'));
+			}
 		}
 		CartRule::autoRemoveFromCart($this->context);
 		CartRule::autoAddToCart($this->context);
-
+	
 		$this->redirectWithNotifications($this->getCartSummaryURL());
 	}
 

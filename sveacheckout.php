@@ -172,7 +172,7 @@ class sveacheckout extends PaymentModule
             $data['presetValues'][] = array(
                 'typeName' => 'isCompany',
                 'value' => (int)Configuration::get('SVEACHECKOUT_ISCOMPANY') === 1 ? true : false,
-                'isReadonly' => true
+                'isReadonly' => (int)Configuration::get('SVEACHECKOUT_ISCOMPANY_READONLY') === 1 ? true : false
             );
 
         }
@@ -229,9 +229,6 @@ class sveacheckout extends PaymentModule
             }
         }
 
-        
-        
-        
         $orderId = $order['OrderId'];
         $guiSnippet = $order['Gui']['Snippet'];
         var_dump($orderId);
@@ -354,7 +351,24 @@ class sveacheckout extends PaymentModule
                     'id' => 'id_option',
                     'name' => 'name'
                 ),
-
+            ),
+            array(
+            	'type' => 'switch',
+            	'label' => $this->l('Customer type readonly'),
+            	'desc' => $this->l('Select if customer type should be readonly'),
+            	'name' => 'SVEACHECKOUT_ISCOMPANY_READONLY',
+            	'values' => array(
+                    array(
+                        'id' => 'active_on',
+                        'value' => 1,
+                        'label' => $this->l('Yes'),
+                    ),
+                    array(
+                        'id' => 'active_off',
+                        'value' => 0,
+                        'label' => $this->l('No'),
+                    ),
+                ),
             ),
           ),
           'submit' => array(
@@ -395,6 +409,7 @@ class sveacheckout extends PaymentModule
             'SVEACHECKOUT_SECRET' => Tools::getValue('SVEACHECKOUT_SECRET', Configuration::get('SVEACHECKOUT_SECRET')),
             'SVEACHECKOUT_TERMS' => Tools::getValue('SVEACHECKOUT_TERMS', Configuration::get('SVEACHECKOUT_TERMS')),
             'SVEACHECKOUT_ISCOMPANY' => Tools::getValue('SVEACHECKOUT_ISCOMPANY', Configuration::get('SVEACHECKOUT_ISCOMPANY')),
+            'SVEACHECKOUT_ISCOMPANY_READONLY' => Tools::getValue('SVEACHECKOUT_ISCOMPANY_READONLY',Configuration::get('SVEACHECKOUT_ISCOMPANY_READONLY')),
          );
     }
     protected function _postProcess()
@@ -405,6 +420,7 @@ class sveacheckout extends PaymentModule
             Configuration::updateValue('SVEACHECKOUT_MODE', Tools::getValue('SVEACHECKOUT_MODE'));
             Configuration::updateValue('SVEACHECKOUT_TERMS', Tools::getValue('SVEACHECKOUT_TERMS'));
             Configuration::updateValue('SVEACHECKOUT_ISCOMPANY', Tools::getValue('SVEACHECKOUT_ISCOMPANY'));
+            Configuration::get('SVEACHECKOUT_ISCOMPANY_READONLY', Tools::getValue('SVEACHECKOUT_ISCOMPANY_READONLY'));
 
         }
 
