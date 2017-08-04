@@ -115,6 +115,8 @@ class sveacheckout extends PaymentModule
 
     public function hookDisplayShoppingCartFooter()
     {
+    	var_dump($this->context->cookie->__isset('svea_order_id'));
+
         $order = null;
         $locale = 'sv-Se';
         $checkoutMerchantId = Configuration::get('SVEACHECKOUT_MERCHANT');
@@ -231,8 +233,11 @@ class sveacheckout extends PaymentModule
 
         if ($this->context->cookie->__isset('svea_order_id')) {
             // resume session
+            
             try {
+            	$data['orderId'] = (int)$this->context->cookie->__get('svea_order_id');
                 $order = $checkoutClient->update($data);
+
             } catch (\Exception $e) {
                 $order = null;
                 $this->context->cookie->__unset('svea_order_id');
@@ -243,22 +248,17 @@ class sveacheckout extends PaymentModule
 
             try {
                 $order = $checkoutClient->create($data);
+
             } catch(\Exception $e) {
                 Logger::addLog('Svea order failed with message ' . $e->getMessage() . 'and error code ' . $e->getCode());
             }
         }
 
-        $orderId = $order['OrderId'];
-        $guiSnippet = $order['Gui']['Snippet'];
-        var_dump($orderId);
-
-        $this->context->cookie->__set('svea_order_id', $orderId);
-
-
-        if (isset($guiSnippet)) {
+        $this->context->cookie->__set('svea_order_id', $order['OrderId']);
+        
+        if (isset($order['Gui']['Snippet'])) {
             $this->context->smarty->assign(array(
-                'snippet' => $guiSnippet,
-                'id_address' => $this->context->cart->id_address_invoice
+                'snippet' => $order['Gui']['Snippet'],
             ));
             return $this->display(__FILE__, 'sveacheckout.tpl');
         }
