@@ -7,4 +7,12 @@ $(document).ready(function() {
 	});
 
 	$('.checkout.cart-detailed-actions.card-block>.text-sm-center').hide();
+
+
+	$( "#promo-code>form>button" ).on('click', function(){
+		return setTimeout(function() {
+			window.location.reload();
+		}, 1000);
+	});
+
 });

@@ -64,7 +64,9 @@ class sveacheckout extends PaymentModule
             && $this->registerHook('displayShoppingCart')
             && $this->registerHook('displayShoppingCartFooter')
             && $this->registerHook('displayHeader')
-            && $this->registerHook('displayCarrierList');
+            && $this->registerHook('displayCarrierList')
+            && $this->registerHook('CartExtraProductActions')
+            && $this->registerHook('');
     }
 
     public function uninstall()
@@ -208,6 +210,23 @@ class sveacheckout extends PaymentModule
             );
         }
 
+        $discounts = $cart->getCartRules();
+
+        if (count($discounts) > 0) {
+            foreach ($discounts as $discount) {
+                $price = $discount['value_real'];
+                $tax_discount = (int)round((($discount['value_real'] / $discount['value_tax_exc']) - 1.0) * 100);
+                $data['cart']['items'][] = array(
+                	"articleNumber" => $discount['code'],
+                    "name" => $discount['name'],
+                    "quantity" => 100,
+                    "unitPrice" => -($price * 100),
+                    "discountPercent" => 0,
+                    "vatPercent" => $tax_discount * 100,
+                );
+            }
+        }
+
         $this->prepareCarriers();
 
         if ($this->context->cookie->__isset('svea_order_id')) {
@@ -248,6 +267,16 @@ class sveacheckout extends PaymentModule
     public function hookDisplayShoppingCart()
     {
         return $this->display(__FILE__, 'carriers.tpl');
+    }
+
+    public function hookDisplayCartTotalPriceLabel($value='')
+    {
+    	echo 'Display cart total';
+    }
+
+    public function hookDisplayCartExtraProductActions($value='')
+    {
+    	echo 'Display cart extra';
     }
 
     public function hookDisplayHeader()
