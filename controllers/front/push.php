@@ -24,11 +24,8 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 
-use Svea\WebPay\WebPay;
-use Svea\WebPay\Config\ConfigurationService;
-use SveaCheckout\CheckoutOrder;
-use PrestaShop\PrestaShop\Core\Foundation\IoC\Container;
-use SveaCheckout\CreateOrderStatus;
+use Svea\Checkout\CheckoutClient;
+use Svea\Checkout\Transport\Connector;
 
 class SveaCheckoutPushModuleFrontController extends ModuleFrontController
 {
@@ -36,53 +33,76 @@ class SveaCheckoutPushModuleFrontController extends ModuleFrontController
     public $display_column_right = false;
     public $ssl =  true;
 
-    private $checkoutOrder;
-
-    public function __construct()
-    {
-
-    	//$this->checkoutOrder = $status;
-
-    	$container = new Container();
-    	$container->bind('\\SveaCheckout\\CreateOrderStatus', '\\SveaCheckout\\CreateOrderStatus', true);
-
-    	$status = $this->get('\\SveaCheckout\\CreateOrderStatus');
-    	dump($status);
-    	dump(CheckoutOrder::class);
-    	header('HTTP/1.1 200 OK', true, 200);
-                    exit;
-    }
-
-
     public function initContent()
     {
 
-
     	parent::initContent();
-    	header('HTTP/1.1 200 OK', true, 200);
-        exit;
+
 
     	$id = Tools::getValue('svea_order');
+        file_put_contents("data.txt", 'svea_order id : '. $id , FILE_APPEND);
 
-    	$config = ConfigurationService::getTestConfig();
-		$orderBuilder = WebPay::checkout($config);
-		$orderBuilder->setCheckoutOrderId((int)$id)
-    		->setCountryCode('SE');
+        $baseUrl = (int)Configuration::get('SVEACHECKOUT_MODE') === 1 ? Connector::PROD_BASE_URL : Connector::TEST_BASE_URL;
+
+    	$conn = Connector::init((int)Configuration::get('SVEACHECKOUT_MERCHANT'), (string)Configuration::get('SVEACHECKOUT_SECRET'), $baseUrl);
+        $checkoutClient = new CheckoutClient($conn);
     	
     	try {
-    		$order = $orderBuilder->getOrder();
+    		$order = $checkoutClient->get(array(
+                'orderId' => (int)$id
+            ));
 
     		file_put_contents("data.txt", print_r($order, true), FILE_APPEND);
 
-    		if ($order['Status'] === 'PaymentGuaranteed') {
-    		
-    			$this->setOrderPending($order);
+    		if ($order['Status'] === 'PaymentGuaranteed' || $order['Status'] === 'Final') {
+
+                $billingAddress = $order['BillingAddress'];
+
+                $customer = new Customer();
+                $customer->firstname = $billingAddress['FirstName'];
+                $customer->lastname = $billingAddress['LastName'];
+                $customer->email = $order['EmailAddress'];
+                $customer->passwd = Tools::passwdGen(8, 'ALPHANUMERIC');
+                $customer->is_guest = 1;
+                $customer->id_default_group = (int)Configuration::get('PS_GUEST_GROUP', null);
+                $customer->newsletter = 0;
+                $customer->optin = 0;
+                $customer->active = 1;
+                $customer->id_gender = 0;
+                $customer->add();
+    		      
+    			$amount = $this->getSveaOrderTotal($order);
+
+                $cart = new Cart((int)$order['ClientOrderNumber']);
+                $this->module->validateOrder(
+                    $cart->id,
+                    Configuration::get('PS_OS_PAYMENT'),
+                    $amount,
+                    $this->module->displayName,
+                    $order['OrderId'],
+                    array(
+                        'transaction_id' => $order['OrderId']
+                    ),
+                    null,
+                    false,
+                    $customer->secure_key
+                );
     		}
 
 
     	} catch (\Exception $e) {
-
+            Logger::addLog('Svea checkout error message ' . $e->getMessage() . ' and error code ' . $e->getCode());
     	}
+    }
+
+
+    private function getSveaOrderTotal($order)
+    {
+        $amount = 0;
+        foreach ($order['Cart']['Items'] as $key => $value) {
+            $amount = $key['Quantity'] * $key['UnitPrice'];
+        }
+        return $amount;
     }
 
 
