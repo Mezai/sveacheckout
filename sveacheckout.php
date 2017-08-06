@@ -65,8 +65,8 @@ class sveacheckout extends PaymentModule
             && $this->registerHook('displayShoppingCartFooter')
             && $this->registerHook('displayHeader')
             && $this->registerHook('displayCarrierList')
-            && $this->registerHook('CartExtraProductActions')
-            && $this->registerHook('');
+            && $this->registerHook('displayCartExtraProductActions')
+            && $this->registerHook('displayCartTotalPriceLabel');
     }
 
     public function uninstall()
@@ -115,14 +115,13 @@ class sveacheckout extends PaymentModule
 
     public function hookDisplayShoppingCartFooter()
     {
-    	var_dump($this->context->cookie->__isset('svea_order_id'));
 
         $order = null;
         $locale = 'sv-Se';
         $checkoutMerchantId = Configuration::get('SVEACHECKOUT_MERCHANT');
         $checkoutSecret = Configuration::get('SVEACHECKOUT_SECRET');
 
-        $baseUrl = (int)Configuration::get('SVEACHECKOUT_MODE') === 1 ? \Svea\Checkout\Transport\Connector::PROD_BASE_URL : \Svea\Checkout\Transport\Connector::TEST_BASE_URL;
+        $baseUrl = (int)Configuration::get('SVEACHECKOUT_MODE') === 1 ? Connector::PROD_BASE_URL : Connector::TEST_BASE_URL;
 
         $conn = Connector::init($checkoutMerchantId, $checkoutSecret, $baseUrl);
         $checkoutClient = new CheckoutClient($conn);
