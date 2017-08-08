@@ -64,15 +64,17 @@ class sveacheckout extends PaymentModule
             && $this->registerHook('displayShoppingCart')
             && $this->registerHook('displayShoppingCartFooter')
             && $this->registerHook('displayHeader')
-            && $this->registerHook('displayCarrierList')
-            && $this->registerHook('CartExtraProductActions')
-            && $this->registerHook('');
+            && $this->registerHook('displayReassurance');
     }
 
     public function uninstall()
     {
         return parent::uninstall()
-            && $this->unregisterHook('header');
+            && $this->unregisterHook('header')
+            && $this->unregisterHook('displayShoppingCart')
+            && $this->unregisterHook('displayShoppingCartFooter')
+            && $this->unregisterHook('displayHeader')
+            && $this->unregisterHook('displayReassurance');
     }
 
 
@@ -115,7 +117,6 @@ class sveacheckout extends PaymentModule
 
     public function hookDisplayShoppingCartFooter()
     {
-    	var_dump($this->context->cookie->__isset('svea_order_id'));
 
         $order = null;
         $locale = 'sv-Se';
@@ -264,19 +265,11 @@ class sveacheckout extends PaymentModule
         }
     }
 
-    public function hookDisplayShoppingCart()
+    public function hookDisplayReassurance()
     {
-        return $this->display(__FILE__, 'carriers.tpl');
-    }
-
-    public function hookDisplayCartTotalPriceLabel($value='')
-    {
-    	echo 'Display cart total';
-    }
-
-    public function hookDisplayCartExtraProductActions($value='')
-    {
-    	echo 'Display cart extra';
+        if ($this->context->controller->php_self === 'cart') {
+            return $this->display(__FILE__, 'carriers.tpl');
+        }
     }
 
     public function hookDisplayHeader()
