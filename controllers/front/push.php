@@ -53,13 +53,10 @@ class SveaCheckoutPushModuleFrontController extends ModuleFrontController
     		$order = $checkoutClient->get(array(
                 'orderId' => (int)$id
             ));
-
-    		file_put_contents("data.txt", print_r($order, true), FILE_APPEND);
-
     		if ($order['Status'] === 'PaymentGuaranteed' || $order['Status'] === 'Final') {
                 $cart = new Cart((int)$order['ClientOrderNumber']);
                 if ($cart->orderExists()) {
-                    return false;
+                    die;
                 }
 
                 $id_customer = (int)Customer::customerExists($order['EmailAddress'], true, true);
@@ -70,6 +67,7 @@ class SveaCheckoutPushModuleFrontController extends ModuleFrontController
                 } 
                 else
                 {
+                    $billingAddress = $order['BillingAddress'];
                     $customer = new Customer();
                     $customer->firstname = $billingAddress['FirstName'];
                     $customer->lastname = $billingAddress['LastName'];
@@ -126,7 +124,7 @@ class SveaCheckoutPushModuleFrontController extends ModuleFrontController
                         }
                         else
                         {
-                            $addres->address1 = $billing['StreetAddress'];
+                            $address->address1 = $billing['StreetAddress'];
                         }
                     }
 
@@ -173,41 +171,16 @@ class SveaCheckoutPushModuleFrontController extends ModuleFrontController
 
                 }
 
-                $new_delivery_options = array();    
-                $new_delivery_options[(int)$delivery_address_id] = $cart->id_carrier.',';
-                $new_delivery_options_serialized = serialize($new_delivery_options);
-                    Db::getInstance()->Execute('
-                        UPDATE `'._DB_PREFIX_.'cart`
-                        SET `delivery_option` = \''.pSQL($new_delivery_options_serialized).'\'
-                        WHERE `id_cart` = '.(int)$cart->id);
-                    if ($cart->id_carrier > 0)
-                        $cart->delivery_option = $new_delivery_options_serialized;
-                    else
-                        $cart->delivery_option = '';
-                    Db::getInstance()->Execute('
-                        UPDATE `'._DB_PREFIX_.'cart_product`
-                        SET `id_address_delivery` = \''.pSQL($delivery_address_id).'\'
-                        WHERE `id_cart` = '.(int)$cart->id);
-                $cart->getPackageList(true);
-
                 $cart->id_customer = $customer->id;
                 $cart->secure_key = $customer->secure_key;
-                $cart->save();
+                $cart->update();
 
-                Db::getInstance()->Execute('
-                    UPDATE `'._DB_PREFIX_.'cart`
-                    SET `id_customer` = \''.pSQL($customer->id).'\'
-                    WHERE `id_cart` = '.(int)$cart->id);
-                Db::getInstance()->Execute('
-                    UPDATE `'._DB_PREFIX_.'cart`
-                    SET `secure_key` = \''.pSQL($customer->secure_key).'\'
-                    WHERE `id_cart` = '.(int)$cart->id);
-                $cache_id = 'objectmodel_cart_'.$cart->id.'_0_0';
-                Cache::clean($cache_id);
-
+                Db::getInstance()->update('cart', array('id_customer' => pSQL($customer->id)), 'id_cart='.(int)$cart->id);
+                Db::getInstance()->update('cart', array('secure_key' => pSQL($customer->secure_key)), 'id_cart='.(int)$cart->id);
+                Cache::clean('objectmodel_cart_'.$cart->id.'_0_0');
 
                 $amount = $cart->getOrderTotal(true, Cart::BOTH);
-                $cart = new Cart($cart->id);
+
                 $this->module->validateOrder(
                     $cart->id,
                     Configuration::get('PS_OS_PAYMENT'),
@@ -217,12 +190,20 @@ class SveaCheckoutPushModuleFrontController extends ModuleFrontController
                     array(
                         'transaction_id' => $order['OrderId']
                     ),
-                    null,
+                    $cart->id_currency,
                     false,
                     $customer->secure_key
                 );
     		}
 
+            $ps_order = Order::getByCartId($cart->id);
+
+            $ps_order->id_carrier = $cart->id_carrier;
+            $ps_order->save();
+
+            $ps_order->refreshShippingCost();
+
+            Db::getInstance()->update('order_carrier', array('id_carrier' => pSQL($cart->id_carrier)), 'id_order='.(int)$ps_order->id);
 
     	} catch (\Exception $e) {
             Logger::addLog('Svea checkout error message ' . $e->getMessage() . ' and error code ' . $e->getCode());
