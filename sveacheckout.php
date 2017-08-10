@@ -118,7 +118,7 @@ class sveacheckout extends PaymentModule
 
     public function hookDisplayShoppingCartFooter()
     {
-
+       
         $order = null;
         $locale = 'sv-Se';
         $checkoutMerchantId = Configuration::get('SVEACHECKOUT_MERCHANT');
